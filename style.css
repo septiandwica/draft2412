@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+:root{
+    --mimi-pink: #F1CFE4ff;
+    --isabelline: #F0ECE9ff;
+    --old-rose: #B46A74ff;
+    --bright-pink-crayola: #F9616Eff;
+    --rosy-brown: #C99299ff;
+    --burgundy: #8A1524ff;
+}   
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .envelopes {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: sans-serif;
+    background-color: var(--mimi-pink);n
+
+  }
+
+  
+  
+  @keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(25deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-25deg); }
+    100% { transform: rotate(0deg); }
+  }
+  
+  .wrapper {
+    height: 200px;
+    width: 300px;
+    background-color: var(--old-rose);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+    animation: shake 2s infinite;
+  }
+  
+  .lid {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-right: 150px solid transparent;
+    border-bottom: 100px solid transparent;
+    border-left: 150px solid transparent;
+    transform-origin: top;
+    transition: transform 0.25s linear;
+  }
+  
+  /* Lid when closed */
+  .lid.one {
+    border-top: 100px solid var(--rosy-brown) ;
+    transform: rotateX(0deg);
+    z-index: 3;
+    transition-delay: 0.75s;
+  }
+  
+  /* Lid when opened */
+  .lid.two {
+    border-top: 100px solid var(--old-rose);
+    transform: rotateX(90deg);
+    z-index: 1;
+    transition-delay: 0.5s;
+  }
+  
+  .envelope {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-top: 100px solid transparent;
+    border-right: 150px solid #F0ECE9ff;
+    border-bottom: 100px solid #F0ECE9ff;
+    border-left: 150px solid #D9D3CFff;
+    z-index: 3;
+  }
+  
+  .letter {
+    position: absolute;
+    top: 0;
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    border-radius: 15px;
+    z-index: 2;
+    transition: 0.5s;
+  }
+  
+  .letter p {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 30px;
+    color: #3B4049;
+  }
+  
+  .wrapper:hover .lid.one {
+    transform: rotateX(90deg);
+    transition-delay: 0s;
+  }
+  
+  .wrapper:hover .lid.two {
+    transform: rotateX(180deg);
+    transition-delay: 0.25s;
+  }
+  
+  .wrapper:hover .letter {
+    transform: translateY(-50px);
+    transition-delay: 0.5s;
+  }
+
+  a.btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-decoration: none;
+    animation: run-around 2s linear 4;
+}
+
+@keyframes run-around {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(20px); }
+    50% { transform: translateX(0); }
+    75% { transform: translateX(-20px); }
+    100% { transform: translateX(0); }
+}
+
+  .buttons{
+    margin-top: 120px;
+    
+  }
+  .blob-btn {
+    z-index: 1;
+    position: relative;
+    padding: 20px 46px;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Nerko One", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: #B46A74ff;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    transition: color 0.5s;
+    cursor: pointer;
+    border-radius: 30px;
+  }
+  .blob-btn:before {
+    content: "";
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #B46A74ff;
+    border-radius: 30px;
+  }
+  .blob-btn:after {
+    content: "";
+    z-index: -2;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s 0.2s;
+    border-radius: 30px;
+  }
+  .blob-btn:hover {
+    color: #FFFFFF;
+    border-radius: 30px;
+  }
+  .blob-btn:hover:after {
+    transition: all 0.3s;
+    left: 0;
+    top: 0;
+    border-radius: 30px;
+  }
+  .blob-btn__inner {
+    z-index: -1;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    background: #ffffff;
+  }
+  .blob-btn__blobs {
+    position: relative;
+    display: block;
+    height: 100%;
+    filter: url("#goo");
+  }
+  .blob-btn__blob {
+    position: absolute;
+    top: 2px;
+    width: 25%;
+    height: 100%;
+    background:#B46A74ff;
+    border-radius: 100%;
+    transform: translate3d(0, 150%, 0) scale(1.7);
+    transition: transform 0.45s;
+  }
+  @supports (filter: url("#goo")) {
+    .blob-btn__blob {
+      transform: translate3d(0, 150%, 0) scale(1.4);
+    }
+  }
+  .blob-btn__blob:nth-child(1) {
+    left: 0%;
+    transition-delay: 0s;
+  }
+  .blob-btn__blob:nth-child(2) {
+    left: 30%;
+    transition-delay: 0.08s;
+  }
+  .blob-btn__blob:nth-child(3) {
+    left: 60%;
+    transition-delay: 0.16s;
+  }
+  .blob-btn__blob:nth-child(4) {
+    left: 90%;
+    transition-delay: 0.24s;
+  }
+  .blob-btn:hover .blob-btn__blob {
+    transform: translateZ(0) scale(1.7);
+  }
+  @supports (filter: url("#goo")) {
+    .blob-btn:hover .blob-btn__blob {
+      transform: translateZ(0) scale(1.4);
+    }
+  }/*# sourceMappingURL=style.css.map */
