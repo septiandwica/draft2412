@@ -16,7 +16,10 @@ $(settings.objModalPopupBtn).bind("click", function () {
         startTyping();
     }
 });
-
+document.addEventListener('click', function() {
+    const audio = document.querySelector('audio');
+    audio.play();
+});
 //On clicking the modal background
 $(settings.objModalCloseBtn).bind("click", function () {
     $(".modal").fadeOut();
