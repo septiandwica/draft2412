@@ -84,3 +84,7 @@ function startTyping() {
 //         window.location.href = 'quitpage.html';
 //     });
 // });
+// document.querySelector('.nextbtn').addEventListener('click', function() {
+//     document.getElementById('popupOne').style.display = 'none'; // Sembunyikan modal sebelumnya
+//     document.getElementById('homeModal').style.display = 'block'; // Tampilkan modal home
+// });

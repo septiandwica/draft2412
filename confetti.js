@@ -210,5 +210,6 @@ window.onload = function() {
     }
   }
 
-  poof();
+  // Tambahkan event listener untuk tombol
+  document.querySelector('.nextbtn').addEventListener('click', poof);
 };
